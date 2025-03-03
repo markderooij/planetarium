@@ -11,12 +11,12 @@ class PlanetController extends Controller
     public function index()
     {
         $planets = Planet::all();
-        dd($planets);
+        return view('index', ['planets' => $planets]);
     }
 
     public function show($planet)
     {
         $planet = Planet::where('name', $planet)->get();
-        dd($planet[0]->name);
+        return view('show', ['planet' => $planet[0]]);
     } 
 }
